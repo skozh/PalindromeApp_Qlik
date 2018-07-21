@@ -86,21 +86,21 @@ module.exports.getAllMessages = function(req,res){
 		});
 }
 
-// Delete records on "Name"
+// Delete records
 module.exports.deleteMessage = function(req,res){
-	var nameId = req.params.name;
+	var messageId = req.params.messageId;
 	
 	Message
-		.remove({ name: nameId.toLowerCase()}, function(err) {
+		.remove({ _id: messageId}, function(err) {
 			if (err){
 				res
 					.status(404)
 					.json(err);
 			} else{
-				console.log("Message deleted of ", nameId);
+				console.log("Message deleted ID ", messageId);
 				res
-					.status(204)
-					.json({"Deleted Message of :":nameId});
+					.status(200)
+					.json({"Deleted Message ID ": messageId});
 			}
 		});
 			
@@ -108,12 +108,12 @@ module.exports.deleteMessage = function(req,res){
 
 // Get one record
 module.exports.messageGetOne = function(req, res) {
-  var nameId = req.params.name;
+  var messageId = req.params.messageId;
 
-  console.log('GET Message of ', nameId);
+  console.log('GET Message ID ', messageId);
 
   Message
-    .find({"name": nameId.toLowerCase()})
+    .find({_id: messageId})
     .exec(function(err, doc) {
       var response = {
         status : 200,
@@ -124,10 +124,10 @@ module.exports.messageGetOne = function(req, res) {
         response.status = 500;
         response.message = err;
       } else if(!doc) {
-        console.log("User not found in the database", nameId);
+        console.log("Message not found in the database", messageId);
         response.status = 404;
         response.message = {
-          "message" : "User not found " + nameId
+          "message" : "Message not found " + messageId
         };
       }
       res

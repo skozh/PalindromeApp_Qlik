@@ -11,7 +11,7 @@ router
 	.get(ctrl.getAllMessages);
   
 router
-	.route('/:name')
+	.route('/:messageId')
 	.get(ctrl.messageGetOne)
 	.delete(ctrl.deleteMessage);
 	
