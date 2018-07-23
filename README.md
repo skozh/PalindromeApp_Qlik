@@ -16,4 +16,4 @@ A simple rest API service where users can submit messages, get messages and dele
 
 ## Installation
 Install [docker-ce] (https://github.com/docker/docker-ce) & [docker-compose] (https://github.com/docker/compose)
-run docker-compose up
+run `docker-compose up`
