@@ -15,5 +15,5 @@ A simple rest API service where users can get, post and delete messages. The mes
   - method: Delete --> action: Deletes an entry
 
 ## Installation:
-Install [docker-ce] (https://github.com/docker/docker-ce) & [docker-compose] (https://github.com/docker/compose)
-run `docker-compose up`
+1. Install [docker-ce] (https://github.com/docker/docker-ce) & [docker-compose] (https://github.com/docker/compose)
+2. run `docker-compose up`
