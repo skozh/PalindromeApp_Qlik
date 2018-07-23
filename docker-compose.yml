@@ -1,7 +1,7 @@
 version: "2"
 services:
   app:
-    image: palindrome_app
+    image: skozh/palindromeappsub
     build: .
     ports:
       - "3000:3000"
