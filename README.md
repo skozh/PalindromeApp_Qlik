@@ -14,6 +14,6 @@ A simple rest API service where users can submit messages, get messages and dele
 * url: http:<base_url>:3000/api/:message_id
   - method: Delete --> action: Deletes an entry
 
-## Installation
+## Installation:
 Install [docker-ce] (https://github.com/docker/docker-ce) & [docker-compose] (https://github.com/docker/compose)
 run `docker-compose up`
