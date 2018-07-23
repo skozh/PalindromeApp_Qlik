@@ -6,9 +6,13 @@ var ctrl = require('../controllers/controllers.js');
 
 // Define Routes
 router
-	.route('/')
+	.route('/list')
 	.post(ctrl.addMessage)
 	.get(ctrl.getAllMessages);
+	
+router
+	.route('/user/:messageId')
+	.delete(ctrl.deleteUserMessages);
   
 router
 	.route('/:messageId')

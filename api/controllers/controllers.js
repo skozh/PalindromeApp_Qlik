@@ -4,7 +4,7 @@ var Message = mongoose.model('Message');
 // Add a record
 module.exports.addMessage = function(req,res){
 	var pal = require('./palindrome.js');
-	
+	console.log (req.body);
 	if (req.body.message && req.body.name){
 		
 		Message
@@ -13,16 +13,16 @@ module.exports.addMessage = function(req,res){
 				word : req.body.message,
 				result : pal.palindrome(req.body.message)
 			}, function(err, message){
-				if (err){
-					console.log("Message not registered");
-					res
-						.status(400)
-						.json(err);
-				} else{
+				if (!err){
 					console.log("Message registered!", message);
 					res
 						.status(201)
 						.json(message);
+				} else{
+					console.log("Message NOT registered!");
+					res
+						.status(400)
+						.json(err);
 				}
 			});
 	}
@@ -86,12 +86,32 @@ module.exports.getAllMessages = function(req,res){
 		});
 }
 
-// Delete records
+// Delete records on ID
 module.exports.deleteMessage = function(req,res){
 	var messageId = req.params.messageId;
 	
 	Message
 		.remove({ _id: messageId}, function(err) {
+			if (err){
+				res
+					.status(404)
+					.json(err);
+			} else{
+				console.log("Message deleted ID ", messageId);
+				res
+					.status(200)
+					.json({"Deleted Message ID ": messageId});
+			}
+		});
+			
+	};
+	
+// Delete records on User
+module.exports.deleteUserMessages = function(req,res){
+	var messageId = req.params.messageId.toLowerCase();
+	
+	Message
+		.remove({ name: messageId}, function(err) {
 			if (err){
 				res
 					.status(404)

@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$.ajax({ 
              type: "GET",
              dataType: "json",
-             url: "api/",
+             url: "api/list/",
              success: success
          });
 	function success(data) {
@@ -13,4 +13,64 @@ $(document).ready(function(){
 		});
 		$('#messages').append(trHTML);
 	}
+	
+	$("#submit").click(function(){
+		var nameVal = $("#name").val();
+		var messageVal = $("#message").val();
+		
+		if (nameVal != "" && messageVal != ""){
+			var info = { name:nameVal , message:messageVal}
+			$.ajax({ 
+             type: "POST",
+			 data: info,
+			 datatype: 'json',
+             url: "/api/list",
+             success: postsuccess,
+			 error: postfailed
+         });
+			
+			function postsuccess() {
+				location.reload();
+			}
+			function postfailed() {
+				alert('Server Error. Try again later');
+			}
+			
+		}
+		else{
+			alert("Values empty");
+		}
+	});
+	
+	$("#delete").click(function(){
+		var nameVal = $("#deletename").val();
+		var posturl = "/api/user/"+nameVal;
+		
+		if (nameVal != ""){
+			
+			$.ajax({ 
+             type: "DELETE",
+			 datatype: 'json',
+             url: posturl,
+             success: postsuccess,
+			 error: postfailed
+         });
+			
+			function postsuccess() {
+				location.reload();
+			}
+			function postfailed() {
+				alert('Server Error. Try again later');
+			}
+			
+		}
+		else{
+			alert("Name empty");
+		}
+	});
+	
+	
+	
+	
+	
 });
