@@ -2,7 +2,6 @@ version: "2"
 services:
   app:
     image: skozh/palindromeappsub
-    build: .
     ports:
       - "3000:3000"
     command: node server.js
