@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node server.js"
   },
   "author": "shyju kozhisseri",
@@ -11,10 +11,24 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "mocha": "^5.2.0",
     "mongodb": "^3.1.1",
     "mongoose": "^5.2.4",
     "npm": "^6.2.0"
   },
-  "devDependencies": {},
-  "description": ""
+  "devDependencies": {
+    "chai": "^4.1.2"
+  },
+  "description": "A simple rest API service where users can get, post and delete messages. The messages received will be checked for palindrome and stored in the local database. Currently running on AWS: http://ec2-52-15-160-169.us-east-2.compute.amazonaws.com:3000/",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skozh/Palindrome_App.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skozh/Palindrome_App/issues"
+  },
+  "homepage": "https://github.com/skozh/Palindrome_App#readme"
 }
