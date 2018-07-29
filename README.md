@@ -19,5 +19,6 @@ A simple rest API service where users can get, post and delete messages. The mes
 2. run `docker-compose up`
 
 ## Installation (in AWS)
-1. Update AWS Access Keys in config.json
+1. Update AWS Access Keys & region in config.json
+2. Update instanceParams in `awscreateinstance.js`
 2. run `node awscreateinstance.js`
