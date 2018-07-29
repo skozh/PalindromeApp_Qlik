@@ -1,7 +1,7 @@
 # Palindrome_App
 
 ## Summary:
-A simple rest API service where users can get, post and delete messages. The messages received will be checked for palindrome and stored in the local database. Currently running on AWS: http://ec2-52-15-160-169.us-east-2.compute.amazonaws.com:3000/
+A simple rest API service where users can get, post and delete messages. The messages received will be checked for palindrome and stored in the local database.
 
 ## Routes:
 * url: http:<base_url>:3000/
