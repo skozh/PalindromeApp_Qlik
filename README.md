@@ -17,3 +17,6 @@ A simple rest API service where users can get, post and delete messages. The mes
 ## Installation:
 1. Install [docker-ce] (https://github.com/docker/docker-ce) & [docker-compose] (https://github.com/docker/compose)
 2. run `docker-compose up`
+
+## Installation (in AWS)
+1. run `node awscreateinstance.js`
