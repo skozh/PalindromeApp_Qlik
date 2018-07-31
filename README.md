@@ -12,6 +12,7 @@ A simple rest API service where users can get, post and delete messages. The mes
   - method: Post --> action: Adds an entry [HTTP Body: name(String), message(String)]
 
 * url: http:<base_url>:3000/api/:message_id
+  - method: Get --> action: Returns the selected message
   - method: Delete --> action: Deletes an entry
 
 ## Installation:
@@ -20,5 +21,4 @@ A simple rest API service where users can get, post and delete messages. The mes
 
 ## Installation (in AWS)
 1. Update AWS Access Keys & region in config.json
-2. Update instanceParams in `awscreateinstance.js`
 2. run `node awscreateinstance.js`
